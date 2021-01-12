@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>
+            Performance
+        </title>
+    </head>
+    <body>
+        <div class="navbar">
+            <h1>
+                <a href="player_bio.html">Bio</a>
+                <a href="player_stats.html">Stats</a>
+                <a href="player_performance.html">Performance</a>
+                <a href="contact.html">Contact</a>
+            </h1>
+        </div>
+        <h4 class="description">
+            Here is the performance over the years for <span id="schedule_team">Selected Player</span>
+        </h4>
+        <table id="player_performance">
+            <tr>
+                <th>Year</th>
+                <th>PPG</th>
+                <th>RPG</th>
+                <th>APG</th>
+                <th>SPG</th>
+                <th>BPG</th>
+            </tr>
+            <tr id="2020player">
+                <td>2020</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+            </tr>
+            <tr id="2019player">
+                <td>2019</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+            </tr>
+            <tr id="2018player">
+                <td>2018</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+            </tr>
+        </table>
+        <br> <br> <br>
+        <div class="stat">
+            Choose a stat:
+            <select id="stat">
+                <option value="ppg">PPG</option>
+                <option value="rpg">RPG</option>
+                <option value="apg">APG</option>
+                <option value="bpg">BPG</option>
+                <option value="spg">SPG</option>
+            </select>
+        </div>
+        <canvas id="playergraph" width="400" height="400"></canvas>
+    </body>
+</html>
