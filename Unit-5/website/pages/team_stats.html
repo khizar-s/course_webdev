@@ -3,11 +3,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" type="text/css" href="../stylesheets/style.css" />
+        <script src="../scripts/teaminfo.js"></script>
         <title>
             Stats
         </title>
     </head>
-    <body>
+    <body onload="description(); nav(); stats()">
         <div class="navbar">
             <ul>
                 <li><a href="team_schedule.html">Schedule</a></li>
@@ -22,7 +23,7 @@
         </h4>
         <div class="stats">
             Choose a stat:
-            <select id="stat">
+            <select id="stat" onchange="stats()">
                 <option value="ppg">PPG</option>
                 <option value="rpg">RPG</option>
                 <option value="apg">APG</option>
