@@ -1,0 +1,261 @@
+body {
+    background-color: #00004d;
+    text-align: center;
+}
+
+#team_select {
+    color: floralwhite;
+    font-size: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#choose_team {
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.team {
+    font-size: 20px;
+    color: floralwhite;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.team:hover {
+    font-size: 25px;
+    color: #006600;
+}
+
+.navbar ul{
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #2f2f1e;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li{
+    float: left;
+    border-right: 1px solid #bbb;
+}
+
+.navbar ul li:last-child {
+    border-right: none;
+    float: right;
+}
+
+.navbar ul li a{
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white
+}
+
+.navbar ul li:not(.selected) a:hover{
+    background-color: #1a0d00;
+}
+
+.selected {
+    background-color: #006600;
+}
+
+.description, .stats {
+    font-size: 25px;
+    color: floralwhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+#schedule_team {
+    font-size: 35px;
+    color: floralwhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#schedule {
+    background-color:grey ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 0.5in;
+    font-size: 20px;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.hometeam, .awayteam {
+    font-size: 25px;
+}
+
+#stat {
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#roster_stat ol, #team_roster ul {
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+#roster_stat ol h3 li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: floralwhite;
+    line-height: 0.5in;
+}
+
+#roster_stat ol h3 li:hover {
+    font-size: 30px;
+}
+
+#team_performance, #player_performance {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    border-collapse: collapse;
+}
+
+#team_performance tr th, #team_performance tr td, #player_performance tr th, #player_performance tr td {
+    padding: 10px;
+    border: 1px solid #003300;
+    text-align: left;
+}
+
+#team_performance tr th, #player_performance tr th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #006600;
+    color: white;
+}
+
+#team_performance tr:nth-child(even), #player_performance tr:nth-child(even) {
+    background-color: #b3e6b3;
+}
+
+#team_performance tr:nth-child(odd), #player_performance tr:nth-child(odd) {
+    background-color: #9fdf9f;
+}
+
+#team_performance tr:hover, #player_performance tr:hover {
+    background-color: #53c653;
+}
+
+#team_roster ul li a, #team_roster ul li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: floralwhite;
+    line-height: 0.5in;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 25px;
+}
+
+#team_roster ul li a:hover {
+    font-size: 30px;
+    color: #006600;
+}
+
+.player {
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    overflow: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.player_image {
+    float: left;
+    color: floralwhite
+}
+
+.player_name {
+    float: right;
+    background-color: #2f2f1e;
+    color: floralwhite;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 25px;
+    background: #2f2f1e;
+}
+
+#height, #weight, #team, #position {
+    box-sizing: border-box;
+    padding: 30px;
+    float: left;
+    width: 50%;
+    height: 50%;
+    color: floralwhite;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 200%;
+    font-style: italic;
+}
+
+#player_height, #player_weight, #player_team, #player_position {    
+    font-size: 30px;
+    font-style: normal
+}
+
+#ppg, #rpg, #apg, #spg, #bpg, #fg {
+    float: left;
+    width: 33%;
+    height: 33%;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    color: floralwhite;
+    font-size: 25px;
+    line-height: 200%;
+    padding: 30px;
+}
+
+#player_ppg, #player_rpg, #player_apg, #player_spg, #player_bpg, #player_fg {
+    font-size: 30px;
+    font-style: normal;
+}
+
+#greeting, #link {
+    color: floralwhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#contact {
+    color: floralwhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 250%;
+    font-size: 20px;
+}
+
+input[type=text] {
+    width: 70%;
+    border: 2px #00004d;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 20px;
+}
+
+#contact input[type=submit] {
+    padding: 20px;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #53c653;
+    border: 2px grey;
+    border-radius: 5px;
+}
+
+#contact input[type=submit]:hover {
+    color: floralwhite;
+    background-color: #003300;
+}
+
+#link a {
+    text-decoration: none;
+    font-size: 30px;
+    color: #6186F3
+}
+
+#link a:hover {
+    font-size: 35px;
+}
