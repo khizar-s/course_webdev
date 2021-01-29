@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="../stylesheets/style.css" />
+        <script src="../scripts/teaminfo.js"></script>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <title>
+            Stats
+        </title>
+    </head>
+    <body onload="description(); nav(); stats()">
+        <div class="navbar">
+            <ul>
+                <li><a href="team_schedule.html">Schedule</a></li>
+                <li class="selected"><a href="team_stats.html">Stats</a></li>
+                <li><a href="team_performance.html">Performance</a></li>
+                <li><a href="team_roster.html">Roster</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <h4 class="description">
+            Here are the stats for the <span id="schedule_team">Selected Team</span>
+        </h4>
+        <div class="stats">
+            Choose a stat:
+            <select id="stat" onchange="stats()">
+                <option value="ppg">PPG</option>
+                <option value="rpg">RPG</option>
+                <option value="apg">APG</option>
+                <option value="bpg">BPG</option>
+                <option value="spg">SPG</option>
+            </select>
+        </div>
+        <br>
+        <span id="roster_stat">
+            <ol>
+                <h3>
+                    <li>
+                        Stat - Player
+                    </li>
+                    <li>
+                        Stat - Player
+                    </li>
+                    <li>
+                        Stat - Player
+                    </li>
+                    <li>
+                        Stat - Player
+                    </li>
+                    <li>
+                        Stat - Player
+                    </li>
+                </h3>
+            </ol>
+        </span>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="../stylesheets/style.css" />
+        <script src="../scripts/teaminfo.js"></script>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <title>
+            Performance
+        </title>
+    </head>
+    <body onload="nav(); description(); performance()">
+        <div class="navbar">
+            <ul>
+                <li><a href="team_schedule.html">Schedule</a></li>
+                <li><a href="team_stats.html">Stats</a></li>
+                <li class="selected"><a href="team_performance.html">Performance</a></li>
+                <li><a href="team_roster.html">Roster</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <h4 class="description">
+            Here is the performance over the years for the <span id="schedule_team">Selected Team</span>
+        </h4>
+            <table id="team_performance">
+                <tr>
+                    <th>Year</th>
+                    <th>PPG</th>
+                    <th>RPG</th>
+                    <th>APG</th>
+                    <th>SPG</th>
+                    <th>BPG</th>
+                </tr>
+                <tr id="2020team">
+                    <td>2020</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                </tr>
+                <tr id="2019team">
+                    <td>2019</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                </tr>
+                <tr id="2018team">
+                    <td>2018</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                </tr>
+            </table>
+        <br> <br> <br>
+        <div class="stats">
+            Choose a stat:
+            <select id="stat">
+                <option value="ppg">PPG</option>
+                <option value="rpg">RPG</option>
+                <option value="apg">APG</option>
+                <option value="bpg">BPG</option>
+                <option value="spg">SPG</option>
+            </select>
+        </div>
+        <canvas id="teamgraph" width="400" height="400"></canvas>
+    </body>
+</html>
