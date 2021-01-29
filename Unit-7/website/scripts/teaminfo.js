@@ -80,28 +80,28 @@ defaultRoster = {
     // Each player has his own unique id
     player1:
         {
-            id: "001",
-            name: "John Doe"
+            id: "237",
+            name: "Lebron James"
         },
     player2:
         {
-            id: "002",
-            name: "Harry Oak"
+            id: "204",
+            name: "Gordon Hayward"
         },
     player3:
         {
-            id: "003",
-            name: "Stephen Mahomes"
+            id: "214",
+            name: "Jrue Holiday"
         },
     player4:
         {
-            id: "004",
-            name: "Eric Green"
+            id: "85",
+            name: "Wendell Carter Jr."
         },
     player5:
         {
-            id: "005",
-            name: "Miles Allen"
+            id: "187",
+            name: "JaMychal Green"
         },
         
 }

@@ -1,54 +1,15 @@
 // Extract ID
 const idF  = location.search.substring(1);
-const id  = idF.substring(3, idF.length);
+const id   = idF.substring(3, idF.length);
 
 // Default bio for 5 players
 var defaultBio = {
-    "001":
-        {
-            name: "John Doe",
-            height: "6ft 3in",
-            weight: "195 lbs",
-            team: "Raptors",
-            position: "G",
-            image: "google.com"
-        },
-    "002": 
-        {
-            name: "Harry Oak",
-            height: "6ft 8in",
-            weight: "255 lbs",
-            team: "Lakers",
-            position: "F",
-            image: "google.com"
-        },
-    "003": 
-        {
-            name: "Stephen Mahomes",
-            height: "6ft 4in",
-            weight: "215 lbs",
-            team: "Kings",
-            position: "G",
-            image: "google.com"
-        },
-    "004": 
-        {
-            name: "Eric Green",
-            height: "7ft 1in",
-            weight: "265 lbs",
-            team: "Warriors",
-            position: "C",
-            image: "google.com"
-        },
-    "005": 
-        {
-            name: "Miles Allen",
-            height: "6ft 10in",
-            weight: "255 lbs",
-            team: "Lakers",
-            position: "C",
-            image: "google.com"
-        }
+    name: "John Doe",
+    height: "6ft 3in",
+    weight: "195 lbs",
+    team: "Raptors",
+    position: "G",
+    image: "google.com"
 }
 
 // Default stats
@@ -100,11 +61,13 @@ class Player {
     }
 }
 
-var currentPlayer = new Player(id, defaultBio[id], defaultStats, defaultPerformance);
+var currentPlayer = new Player(id, defaultBio, defaultStats, defaultPerformance);
 
 // Function to change the description at the top to selected player's name
 function description() {
-    $("#schedule_team").html(currentPlayer.bio["name"]);
+    $.get(`https://www.balldontlie.io/api/v1/players/${id}`).done(function( data ) {
+        $("#schedule_team").html(data.first_name + " " + data.last_name);
+    });
 }
 
 // This function adds the player id to the links in the navbar
@@ -126,24 +89,29 @@ function nav() {
 
 // Function to populate bio with selected players information
 function bio() {
-    $(".player_name").html(currentPlayer.bio["name"]);
-    $(".player_image").attr("src", currentPlayer.bio["image"]);
-    $("#player_height").html(currentPlayer.bio["height"]);
-    $("#player_weight").html(currentPlayer.bio["weight"]);
-    $("#player_team").html(currentPlayer.bio["team"]);
-    $("#player_position").html(currentPlayer.bio["position"]);
+    $.get(`https://www.balldontlie.io/api/v1/players/${id}`).done(function( data ) {
+        $(".player_name").html(data.first_name + " " + data.last_name);
+        $("#player_height").html(data.height_feet + "ft " + data.height_inches + "in");
+        $("#player_weight").html(data.weight_pounds + " lbs");
+        $("#player_team").html(data.team.name);
+        $("#player_position").html(data.position);
+    })
 }
 
 // Function to populate the stats with the selected players data
 function stats() {
-    $(".player_name").html(currentPlayer.bio["name"]);
-    $(".player_image").attr("src", currentPlayer.bio["image"]);
-    $("#player_ppg").html(currentPlayer.stats["ppg"]);
-    $("#player_rpg").html(currentPlayer.stats["rpg"]);
-    $("#player_apg").html(currentPlayer.stats["apg"]);
-    $("#player_spg").html(currentPlayer.stats["spg"]);
-    $("#player_bpg").html(currentPlayer.stats["bpg"]);
-    $("#player_fg").html(currentPlayer.stats["fg"]);
+    $.get(`https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${id}`).done(function( data ) {
+        $("#player_ppg").html(data.data[0].pts);
+        $("#player_rpg").html(data.data[0].reb);
+        $("#player_apg").html(data.data[0].ast);
+        $("#player_bpg").html(data.data[0].blk);
+        $("#player_spg").html(data.data[0].stl);
+        $("#player_fg").html(Number(data.data[0].fg_pct)*100);
+    })
+
+    $.get(`https://www.balldontlie.io/api/v1/players/${id}`).done(function( data ) {
+        $(".player_name").html(data.first_name + " " + data.last_name);
+    })
 }
 
 // This function populates the table with the players performance over the years
