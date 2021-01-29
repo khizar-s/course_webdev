@@ -137,56 +137,56 @@ currentTeam.populateSchedule();
 
 // Function to change the description at the top to selected team's value
 function description() {
-    document.getElementById("schedule_team").innerHTML = currentTeam.name;
+    $("#schedule_team").html(currentTeam.name);
 }
 
 // This function adds the team name to the links in the navbar
 function nav() {
     // Parses the list items
-    var navbar = document.getElementsByClassName("navbar")[0].getElementsByTagName("ul")[0].getElementsByTagName("li");
+    var navbar = $(".navbar > ul > li");
+
     for (i = 0; i < 4; i++) {
         // Chooses the not selected class
         if (navbar[i].className == "selected") {
             continue;
         } else {
             // Appends the team name to the remaining links
-            var test = navbar[i].getElementsByTagName("a")[0];
-            test.href += "?team=" + teaml;
+            var _href = $("> a", navbar[i]).attr('href');
+            $("> a", navbar[i]).attr('href', _href + "?team=" + teaml);
         }
     }
 }
 
 // Modifies the HTML content with the selected teams schedule
 function schedule() {
-    document.getElementById("schedule").innerHTML = "";
+    $("#schedule").html("");
     // A for loop to go over every match in the given schedule
     for ( match in currentTeam.schedule ) {
         // Home team, away team and match time are all set to selected teams schedule
-        x = `<span class="hometeam">${currentTeam.schedule[match].homeTeam}</span> VS <span class="awayteam">${currentTeam.schedule[match].awayTeam}</span> <br>${currentTeam.schedule[match].time}<br>`;
-        document.getElementById("schedule").innerHTML += x;
+        $("#schedule").append(
+            `<span class="hometeam">${currentTeam.schedule[match].homeTeam}</span> VS <span class="awayteam">${currentTeam.schedule[match].awayTeam}</span> <br>${currentTeam.schedule[match].time}<br>`
+        );
     }
 }
 
 // This function sorts the list of stats for players on the selected team in descending order and adds them to the list
 function stats() {
     // Gets elements of the list
-    const stat  = document.getElementById("stat").value;
+    const stat  = $("#stat").val();
     // Sort was being buggy so used this variation obtained from: https://stackoverflow.com/questions/7000851/array-sort-doesnt-sort-numbers-correctly
     const stats = defaultStats[stat].sort(function(a,b){return a - b}).reverse();
-    var list = document.getElementById("roster_stat").getElementsByTagName("ol")[0].getElementsByTagName("h3")[0];
-    list.innerHTML = "";
+    var list = $("#roster_stat > ol > h3")
+    list.html("");
     // Adds the stats from the sorted list
     for (i = 0; i < 5; i++) {
-        list.innerHTML += `<li>${stats[i]} ${stat.toUpperCase()}</li>`;
+        list.append(
+            `<li>${stats[i]} ${stat.toUpperCase()}</li>`
+        )
     }
 }
 
 // This function populates the table with the teams performance over the years
 function performance() {
-    // Gets each row separately because of the way we are parsing the performance
-    var row2020 = document.getElementById("2020team").getElementsByTagName("td");
-    var row2019 = document.getElementById("2019team").getElementsByTagName("td");
-    var row2018 = document.getElementById("2018team").getElementsByTagName("td");
     var keys = Object.keys(defaultPerformance[2020]);
 
     // Loops over the table columns and fills each rows value
@@ -194,21 +194,24 @@ function performance() {
         var pval2020 = defaultPerformance[2020][keys[i-1]];
         var pval2019 = defaultPerformance[2019][keys[i-1]];
         var pval2018 = defaultPerformance[2018][keys[i-1]];
-        row2020[i].innerHTML = pval2020;
-        row2019[i].innerHTML = pval2019;
-        row2018[i].innerHTML = pval2018;
+        $($("#2020team > td")[i]).html(pval2020);
+        $($("#2019team > td")[i]).html(pval2019);
+        $($("#2018team > td")[i]).html(pval2018);
     }
 }
 
 // This function populates the roster list with the players on the selected team
 function roster() {
     // Gets roster list
-    var roster = document.getElementById("team_roster").getElementsByTagName("ul")[0];
-    roster.innerHTML = "";
+    var roster = $("#team_roster > ul");
+    $($(roster)[0]).html("");
+
     // Loops through list of players and appends them to the roster list
     for (var x in defaultRoster) {
         var name = defaultRoster[x]["name"];
         var id = defaultRoster[x]["id"];
-        roster.innerHTML += `<li><a href="player_bio.html?id=${id}">${name}</a></li>`
+        $($(roster)[0]).append(
+            `<li><a href="player_bio.html?id=${id}">${name}</a></li>`
+        );
     }
 }

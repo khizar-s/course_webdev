@@ -31,17 +31,17 @@ function viewTeams() {
 
     // If selected conference is West, shows West teams
     if (confvalue == "west") {
-        document.getElementById("teams").innerHTML = "";
+        $("#teams").html("");
         // Loops over teams in the West and adds them to the HTML page one by one
         for (i = 0; i < west.length; i++) {
-            document.getElementById("teams").innerHTML += west[i] + "<br>";
+            $("#teams").append(west[i] + "<br>");
         }
     // If selected conference is East, shows East teams
     } else {
-        document.getElementById("teams").innerHTML = "";
+        $("#teams").html("");
         // Loops over teams in the East and adds them to the HTML page one by one
         for (i = 0; i < east.length; i++) {
-            document.getElementById("teams").innerHTML += east[i] + "<br>";
+            $("#teams").append(east[i] + "<br>");
         }
     }
 }

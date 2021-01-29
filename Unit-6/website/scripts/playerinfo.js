@@ -104,53 +104,54 @@ var currentPlayer = new Player(id, defaultBio[id], defaultStats, defaultPerforma
 
 // Function to change the description at the top to selected player's name
 function description() {
-    document.getElementById("schedule_team").innerHTML = currentPlayer.bio["name"];
+    $("#schedule_team").html(currentPlayer.bio["name"]);
 }
 
 // This function adds the player id to the links in the navbar
 function nav() {
     // Parses the list items
-    var navbar = document.getElementsByClassName("navbar")[0].getElementsByTagName("ul")[0].getElementsByTagName("li");
+    var navbar = $(".navbar > ul > li");
+
     for (i = 0; i < 3; i++) {
         // Chooses the not selected class
         if (navbar[i].className == "selected") {
             continue;
         } else {
-            // Appends the team name to the remaining links
-            var test = navbar[i].getElementsByTagName("a")[0];
-            test.href += "?id=" + id;
+            // Appends the player id to the remaining links
+            var _href = $("> a", navbar[i]).attr('href');
+            $("> a", navbar[i]).attr('href', _href + "?id=" + id);
         }
     }
 }
 
 // Function to populate bio with selected players information
 function bio() {
-    document.getElementsByClassName("player_name")[0].innerHTML = currentPlayer.bio["name"];
-    document.getElementsByClassName("player_image").src = currentPlayer.bio["image"];
-    document.getElementById("player_height").innerHTML = currentPlayer.bio["height"];
-    document.getElementById("player_weight").innerHTML = currentPlayer.bio["weight"];
-    document.getElementById("player_team").innerHTML = currentPlayer.bio["team"];
-    document.getElementById("player_position").innerHTML = currentPlayer.bio["position"];
+    $(".player_name").html(currentPlayer.bio["name"]);
+    $(".player_image").attr("src", currentPlayer.bio["image"]);
+    $("#player_height").html(currentPlayer.bio["height"]);
+    $("#player_weight").html(currentPlayer.bio["weight"]);
+    $("#player_team").html(currentPlayer.bio["team"]);
+    $("#player_position").html(currentPlayer.bio["position"]);
 }
 
 // Function to populate the stats with the selected players data
 function stats() {
-    document.getElementsByClassName("player_name")[0].innerHTML = currentPlayer.bio["name"];
-    document.getElementsByClassName("player_image").src = currentPlayer.bio["image"];
-    document.getElementById("player_ppg").innerHTML = currentPlayer.stats["ppg"];
-    document.getElementById("player_rpg").innerHTML = currentPlayer.stats["rpg"];
-    document.getElementById("player_apg").innerHTML = currentPlayer.stats["apg"];
-    document.getElementById("player_spg").innerHTML = currentPlayer.stats["spg"];
-    document.getElementById("player_bpg").innerHTML = currentPlayer.stats["bpg"];
-    document.getElementById("player_fg").innerHTML = currentPlayer.stats["fg"];
+    $(".player_name").html(currentPlayer.bio["name"]);
+    $(".player_image").attr("src", currentPlayer.bio["image"]);
+    $("#player_ppg").html(currentPlayer.stats["ppg"]);
+    $("#player_rpg").html(currentPlayer.stats["rpg"]);
+    $("#player_apg").html(currentPlayer.stats["apg"]);
+    $("#player_spg").html(currentPlayer.stats["spg"]);
+    $("#player_bpg").html(currentPlayer.stats["bpg"]);
+    $("#player_fg").html(currentPlayer.stats["fg"]);
 }
 
 // This function populates the table with the players performance over the years
 function performance() {
     // Gets each row separately because of the way we are parsing the performance
-    var row2020 = document.getElementById("2020player").getElementsByTagName("td");
-    var row2019 = document.getElementById("2019player").getElementsByTagName("td");
-    var row2018 = document.getElementById("2018player").getElementsByTagName("td");
+    var row2020 = $("#2020player > td")
+    var row2019 = $("#2019player > td")
+    var row2018 = $("#2018player > td")
     var keys = Object.keys(defaultPerformance[2020]);
 
     // Loops over the table columns and fills each rows value
@@ -158,8 +159,8 @@ function performance() {
         var pval2020 = defaultPerformance[2020][keys[i-1]];
         var pval2019 = defaultPerformance[2019][keys[i-1]];
         var pval2018 = defaultPerformance[2018][keys[i-1]];
-        row2020[i].innerHTML = pval2020;
-        row2019[i].innerHTML = pval2019;
-        row2018[i].innerHTML = pval2018;
+        $(row2020[i]).html(pval2020);
+        $(row2019[i]).html(pval2019);
+        $(row2018[i]).html(pval2018);
     }
 }
