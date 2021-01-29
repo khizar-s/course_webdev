@@ -1,11 +1,11 @@
 ## Brief and Rationale
-Since my Javascript code was very long, I decided to implement jQuery features that reduce some of the complicated Javascript features. It is mostly switching from Javascript's innerHTML to append in jQuery. Since a lot of my Javascript code uses this innerHTML feature, consider my Javascript and jQuery code to be one thing.
+I used the API service provided by BallDontLie which can be viewed at https://www.balldontlie.io. From this website, I utilized 2 APIs: One for getting player information and one for getting player stats. This will be super helpful for the personas as the API aims to provide accurate and up to date information on players instead of standard placeholder values
 
 ## Learning outcome
-Learned how to properly utilize Javascript features and implement them into a dynamically changing HTML website. The use of classes were super helpful in maintaining neat access to objects and ensuring functions are easy to create.
+Learned how to use an API to acquire useful information and parse it with Javascript and jQuery so that it can be displayed in an HTML page.
 
 ## What went well and what didn’t
-I was able to implement both of my ideas almost exactly as I wanted and the innerHTML feature was extremely helpful in ensuring that I was able to do so. While I would have also liked to complete the graph idea, I was not able to find proper code to help with me that, perhaps some API exists for that and I could attempt that in Unit 7.
+I was able to implement the player bio and statistics very well. However, the team information API I was eyeing to piece together my website into a full functioning resource was extremely hard to work with and given I had limited time, I chose to abandon that feature and focus on the player information instead.
 
 ## What I would do differently
-I would try to have forms in each page using and POST and GET to pass information instead of the URL parsing method that I used which was unnecessarily complicated.
+Now that I'm familiar with APIs, I would probably try to see if I can access future APIs easily and work with them to an extent. That way I'd avoid having to run into issues where I have to drop or change APIs to get my website to work.
